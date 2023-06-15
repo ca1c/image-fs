@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'));
 });
 
+app.post('/image', (req, res) => {
+    console.log(req);
+    res.send("ok");
+})
+
 app.listen(4000, function() {
     console.log('app listening on port 4000');
 });
