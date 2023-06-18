@@ -5,11 +5,11 @@
 </head>
 <body>
     <h1>Server Image File Processing</h1>
-    <form action="/image" method="post">
         <input type="file"
             id="image" name="image"
             accept="image/png, image/jpeg"
         >
-        <input type="submit" text="submit">
-    </form>
+        <button id="submit" onclick="submitFormData()">Submit</button>
+        <script src="js/main.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>

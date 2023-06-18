@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
+const busboy = require('connect-busboy');
 
 app.use(bodyParser.json());
+app.use(busboy({ immediate: true }));
 app.use(express.static(path.resolve(__dirname, 'static')));
 
 app.get('/', (req, res) => {
@@ -11,7 +13,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/image', (req, res) => {
-    console.log(req);
+    req.busboy.on('file', (name, file, info) => {
+        console.log(name);
+        console.log(file);
+    })
     res.send("ok");
 })
 
